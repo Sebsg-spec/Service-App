@@ -1,0 +1,80 @@
+﻿@page
+@model Service_App.Pages.Appointment.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].CarMake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].CarModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].CarYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].Additionalinfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].Service.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appoitments[0].AppointmentStatus.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Appoitments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarMake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Additionalinfo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentStatus.Status)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+﻿@page
+@model Service_App.Pages.Appointment.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    .margin-top{
+        margin-top: 10px;
+    }
+    </style>
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Appoitments</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.CarMake)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.CarMake)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.CarModel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.CarModel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.CarYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.CarYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.Additionalinfo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.Additionalinfo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.AppointmentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.AppointmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Appoitments.Service.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Appoitments.Service.Location)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Appoitments.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger margin-top" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

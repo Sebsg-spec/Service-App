@@ -1,0 +1,86 @@
+﻿@page
+@model Service_App.Pages.Appointment.CreateModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Appoitments</h4>
+<style>
+    .margin-top{
+        margin-top: 10px;
+    }
+</style>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Appointment.FullName" class="control-label">Full Name</label>
+                <input asp-for="Appointment.FullName" class="form-control" />
+                <span asp-validation-for="Appointment.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.CarMake" class="control-label">Car Make</label>
+                <input asp-for="Appointment.CarMake" class="form-control" />
+                <span asp-validation-for="Appointment.CarMake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.CarModel" class="control-label"> Car Model </label>
+                <input asp-for="Appointment.CarModel" class="form-control" />
+                <span asp-validation-for="Appointment.CarModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.CarPlate" class="control-label">Car Plates</label>
+                <input asp-for="Appointment.CarPlate" class="form-control" />
+                <span asp-validation-for="Appointment.CarPlate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.CarYear" class="control-label">Car Year</label>
+                <input asp-for="Appointment.CarYear" class="form-control" />
+                <span asp-validation-for="Appointment.CarYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Additionalinfo" class="control-label"> Additional Info </label>
+                <input asp-for="Appointment.Additionalinfo" class="form-control" />
+                <span asp-validation-for="Appointment.Additionalinfo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Appointment.AppointmentDate" class="control-label">Appointment Date</label>
+                <input asp-for="Appointment.AppointmentDate" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="Appointment.AppointmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.ServiceId" class="control-label">Location</label>
+                <select asp-for="Appointment.ServiceId" asp-items="@Model.LocationsList" class="form-control" >
+                    <option value="">Select Location</option>
+                </select>
+                <span asp-validation-for="Appointment.ServiceId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group margin-top">
+                <input type="submit" value="Create" class="btn btn-primary" />
+
+            </div>
+
+        </form>
+        @if (Model.Appointment != null && Model.Appointment.Id > 0)
+        {
+            <p>Your appointment ID is: @Model.Appointment.UniqueCode</p>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

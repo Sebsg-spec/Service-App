@@ -1,0 +1,31 @@
+﻿@page
+@model Service_App.Pages.MyAppointmentsModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<h1>User Appointments</h1>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Appointment Date</th>
+                <!-- Add other appointment properties as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model.UserAppointments)
+            {
+                <tr>
+                    <td>@appointment.AppointmentDate</td>
+                    <!-- Add other appointment properties as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Please sign in to view your appointments.</p>
+}

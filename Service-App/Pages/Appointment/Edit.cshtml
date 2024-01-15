@@ -1,0 +1,73 @@
+﻿@page
+@model Service_App.Pages.Appointment.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    .margin-top {
+        margin-top: 10px;
+    }
+</style>
+
+<h1>Edit</h1>
+
+<h4>Appoitments</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Appoitments.Id" />
+            <div class="form-group">
+                <label asp-for="Appoitments.FullName" class="control-label"></label>
+                <input asp-for="Appoitments.FullName" class="form-control" />
+                <span asp-validation-for="Appoitments.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appoitments.CarMake" class="control-label"></label>
+                <input asp-for="Appoitments.CarMake" class="form-control" />
+                <span asp-validation-for="Appoitments.CarMake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appoitments.CarModel" class="control-label"></label>
+                <input asp-for="Appoitments.CarModel" class="form-control" />
+                <span asp-validation-for="Appoitments.CarModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appoitments.CarYear" class="control-label"></label>
+                <input asp-for="Appoitments.CarYear" class="form-control" />
+                <span asp-validation-for="Appoitments.CarYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appoitments.Additionalinfo" class="control-label"></label>
+                <input asp-for="Appoitments.Additionalinfo" class="form-control" />
+                <span asp-validation-for="Appoitments.Additionalinfo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Appoitments.AppointmentDate" class="control-label"></label>
+                <input asp-for="Appoitments.AppointmentDate" class="form-control" />
+                <span asp-validation-for="Appoitments.AppointmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appoitments.ServiceId" class="control-label">Location</label>
+                <select asp-for="Appoitments.ServiceId" asp-items="@Model.LocationsList" class="form-control" name="Appointment.ServiceId">
+                    <option value="">Select Location</option>
+                </select>
+                <span asp-validation-for="Appoitments.ServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary margin-top" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

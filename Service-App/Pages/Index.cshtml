@@ -1,0 +1,185 @@
+﻿@page
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <meta charset="utf-8" />
+    <title>BorsCars Service</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .jumbotron {
+            background-image: url('/images/porsche-normal.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .content-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .content-text {
+            max-width: 500px;
+            color: black;
+        }
+
+        .content-image {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin-right: 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact {
+            margin-top: 20px;
+        }
+
+            .footer-contact h4 {
+                margin-bottom: 10px;
+            }
+
+            .footer-contact p {
+                margin-bottom: 5px;
+            }
+
+        .contact-icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+
+                @if (User.IsInRole("User"))
+                {
+                    
+                    <a class="navbar-brand" asp-area="" asp-page="/Index"><b>BorsCar</b></a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Service/Index">Service</a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Appointment/Create">Appoitment</a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Appointment-redir">Check your status</a>
+                }
+                else if (User.IsInRole("Admin"))
+                {
+                    <a class="navbar-brand" asp-area="" asp-page="/Index"><b>BorsCar</b></a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Service/Index">Service</a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Appointment/Create">Appoitment</a>
+                    <a class="navbar-brand" asp-area="" asp-page="/AppointmentStats/Index">Status update</a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Appointment-redir">Check your status</a>
+                    <a class="navbar-brand" asp-area="" asp-page="/Members/Index">Members</a>
+
+                }
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">BorsCars Service</h1>
+            <p class="lead">Your one-stop solution for car servicing!</p>
+        </div>
+
+        <!-- First content row: Image on the right, text on the left -->
+        <div class="content-row">
+            <div class="content-text">
+                <h2>Quality Service</h2>
+                <p>We provide top quality car maintenance and repair services, keeping your vehicle in optimal condition.</p>
+            </div>
+            <img src="/images/1_0x0_790x520_0x520_car-service-checklist.png" alt="Sample Image 1" class="content-image">
+        </div>
+
+        <!-- Second content row: Image on the left, text on the right -->
+        <div class="content-row">
+            <img src="/images/sadsadsdsad.png" alt="Sample Image 2" class="content-image">
+            <div class="content-text">
+                <h2>Experienced Mechanics</h2>
+                <p>Our team of skilled and experienced mechanics ensures that your car receives the best care and attention.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <div class="footer-logo">BorsCars</div>
+                        <p>We really hope for a 10 fort .</p>
+                    </div>
+                    <div class="footer-column footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column footer-contact">
+                        <h4>Contact Information</h4>
+                        <p><span class="contact-icon">&#128222;</span> Phone: +1 (123) 456-7890</p>
+                        <p><span class="contact-icon">&#9993;</span> Email: info@borscars.com</p>
+                        <p><span class="contact-icon">&#127968;</span> Location: 123 Main Street, Cityville</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+       <!-- Add any additional scripts or JavaScript references if needed -->
+
+</body>
+</html>

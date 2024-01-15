@@ -1,0 +1,22 @@
+﻿@page
+@model Service_App.Pages.Appointment_redirModel
+
+<style>
+    .margin-top {
+        margin-top: 10px;
+    }
+</style>
+<form method="post">
+    <div class="form-group">
+        <label for="UniqueCode">Unique Code:</label>
+        <input type="text" class="form-control" id="UniqueCode" name="UniqueCode" asp-for="UniqueCode" />
+        <span asp-validation-for="UniqueCode" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary margin-top">Submit</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Status))
+{
+    <p>Status: @Model.Status</p>
+}
